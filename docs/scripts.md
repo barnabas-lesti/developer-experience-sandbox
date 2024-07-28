@@ -17,9 +17,12 @@ pnpm clean
 pnpm lint
 pnpm lint:fix
 
-# Start development server
+# Start development server and/or run package builders in watch mode
 pnpm dev
 
-# Build the application in production mode
+# Build the application/package in production mode
 pnpm build
+
+# Run the server in production preview mode
+pnpm preview
 ```

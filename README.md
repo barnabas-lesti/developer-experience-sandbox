@@ -21,7 +21,7 @@ Playground project to test out linting, structure and basic features for develop
 - Clone the repo.
 - In the root of the project:
   1. Run `pnpm i` to install dependencies (if needed run `pnpm clean` to clean the lock file).
-  2. Run `pnpm dev:<application>` to start the application.
+  2. Run `pnpm dev --filter="<app/package name>` to start an application or package build in watch mode.
 
 ### Documentation
 
