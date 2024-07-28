@@ -6,7 +6,8 @@
   "packageManager": "pnpm@8.9.0",
   "scripts": {
     "turbo": "turbo",
-    "clean": "node ./tools/clean.cli",
+    "cli:clean": "node ./tools/clean.cli",
+    "cli:sync-ignore-files": "node ./tools/sync-ignore-files.cli",
     "dev": "turbo run dev",
     "dev:js-vite": "turbo run dev --filter=\"@devex/js-vite\"",
     "dev:qwik": "turbo run dev --filter=\"@devex/qwik\"",

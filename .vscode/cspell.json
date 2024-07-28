@@ -1,6 +1,13 @@
 {
   "version": "0.2",
   "language": "en",
-  "words": ["devex", "eslintcache", "qwik", "stylelint", "undici"],
+  "words": [
+    "devex",
+    "eslintcache",
+    "qwik",
+    "stylelint",
+    "stylelintignore",
+    "undici"
+  ],
   "flagWords": []
 }
