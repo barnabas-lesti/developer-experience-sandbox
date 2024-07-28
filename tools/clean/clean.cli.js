@@ -1,16 +1,13 @@
 import { execSync } from "child_process";
-import fs from "fs";
-import { dirname } from "node:path";
-import { fileURLToPath } from "node:url";
-import path from "path";
+
+import { getFileContent } from "../utility/utility.functions.js";
 
 const GIT_IGNORE_FILE_NAME = ".gitignore";
 
 try {
+  const gitIgnoreFileContent = getFileContent(GIT_IGNORE_FILE_NAME);
   const files = [];
   const globs = [];
-
-  const gitIgnoreFileContent = fs.readFileSync(getProjectRelativeFilePath(GIT_IGNORE_FILE_NAME), "utf8");
 
   gitIgnoreFileContent
     .split("\n")
@@ -32,11 +29,5 @@ try {
 
   execSync(cleanCommand, { stdio: "inherit" });
 } catch (error) {
-  throw new Error('".clean" file missing.');
-}
-
-function getProjectRelativeFilePath(ignoreFileName) {
-  const executionPath = dirname(fileURLToPath(import.meta.url));
-  const projectRootPath = path.join(executionPath, "..");
-  return path.join(projectRootPath, ignoreFileName);
+  throw new Error(error);
 }
