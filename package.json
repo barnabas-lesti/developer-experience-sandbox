@@ -1,0 +1,32 @@
+{
+  "name": "@devex/root",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@8.9.0",
+  "scripts": {
+    "turbo": "turbo",
+    "clean": "node ./tools/clean.cli",
+    "dev": "turbo run dev",
+    "dev:js-vite": "turbo run dev --filter=\"@devex/js-vite\"",
+    "build": "turbo run build",
+    "preview": "turbo run preview",
+    "lint": "prettier . --check --cache && eslint . --cache && stylelint \"**/*.css\"",
+    "lint:fix": "prettier . --write --cache && eslint . --fix --cache && stylelint \"**/*.css\" --fix"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@turbo/gen": "^2.0.6",
+    "@typescript-eslint/eslint-plugin": "^7.16.1",
+    "@typescript-eslint/parser": "^7.16.1",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-turbo": "^2.0.9",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "prettier": "^3.3.3",
+    "stylelint": "^15.10.3",
+    "stylelint-config-standard": "^34.0.0",
+    "typescript": "^5.3.3",
+    "turbo": "^2.0.6"
+  }
+}

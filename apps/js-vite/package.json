@@ -1,0 +1,14 @@
+{
+  "name": "@devex/js-vite",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite --port 3000",
+    "preview": "vite preview --port 3010"
+  },
+  "devDependencies": {
+    "vite": "^5.3.4"
+  }
+}

@@ -1,0 +1,9 @@
+# Files
+.DS_Store
+*.md
+pnpm-lock.yaml
+
+# Folders
+node_modules/
+.turbo/
+dist/
