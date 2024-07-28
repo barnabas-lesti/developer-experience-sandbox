@@ -6,4 +6,4 @@ pnpm-lock.yaml
 # Folders
 node_modules/
 .turbo/
-build/
+dist/

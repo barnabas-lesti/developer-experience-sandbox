@@ -1,10 +1,9 @@
 // import test1 from "@remote-package/test";
 // import test2 from "remote-package/test";
 
-// import test3 from "@devex/test";
+import { setupCounter } from "@devex/ts-vite";
 
 import javascriptLogo from "./assets/javascript.svg";
-import { setupCounter } from "./counter/counter.functions";
 
 import viteLogo from "/vite.svg";
 
