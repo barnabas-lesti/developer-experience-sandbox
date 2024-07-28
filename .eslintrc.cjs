@@ -1,4 +1,4 @@
-const PROJECT_NAME = "devex";
+const PROJECT_NAME = "webdev";
 
 /** @type {import('eslint').ESLint.ConfigData} */
 module.exports = {

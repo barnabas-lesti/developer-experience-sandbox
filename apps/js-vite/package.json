@@ -1,5 +1,5 @@
 {
-  "name": "@devex/js-vite",
+  "name": "@webdev-apps/js-vite",
   "private": true,
   "version": "0.0.1",
   "type": "module",
@@ -9,7 +9,7 @@
     "preview": "vite preview --port 3010"
   },
   "dependencies": {
-    "@devex/ts-vite": "workspace:*"
+    "@webdev-packages/ts-vite": "workspace:*"
   },
   "devDependencies": {
     "vite": "^5.3.4"

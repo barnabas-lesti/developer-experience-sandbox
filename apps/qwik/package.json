@@ -1,5 +1,5 @@
 {
-  "name": "@devex/qwik",
+  "name": "@webdev-apps/qwik",
   "private": true,
   "type": "module",
   "scripts": {
