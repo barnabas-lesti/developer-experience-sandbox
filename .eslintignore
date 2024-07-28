@@ -1,10 +1,6 @@
-# Include "hack"
-!.prettierrc.cjs
-!.stylelintrc.cjs
-
 # Common
 .DS_Store
-*.md
+.eslintcache
 pnpm-lock.yaml
 node_modules/
 .turbo/
