@@ -11,6 +11,7 @@ export function cleanProject() {
       return;
     }
 
+    console.log(cleanCommand);
     execSync(cleanCommand, { stdio: "inherit" });
   } catch (error) {
     console.error(error);
