@@ -9,6 +9,7 @@
     "clean": "node ./tools/clean.cli",
     "dev": "turbo run dev",
     "dev:js-vite": "turbo run dev --filter=\"@devex/js-vite\"",
+    "dev:qwik": "turbo run dev --filter=\"@devex/qwik\"",
     "build": "turbo run build",
     "preview": "turbo run preview",
     "lint": "prettier . --check --cache && eslint . --cache && stylelint \"**/*.css\"",

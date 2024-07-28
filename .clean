@@ -1,5 +1,10 @@
+.DS_Store
 .eslintcache
 pnpm-lock.yaml
 **/node_modules
 **/.turbo
-**/dist
+**/apps/js-vite/dist
+**/apps/qwik/dist
+**/apps/qwik/tmp
+**/apps/qwik/server
+**/packages/ts-vite/dist

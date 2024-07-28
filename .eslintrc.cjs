@@ -27,7 +27,7 @@ module.exports = {
     "simple-import-sort/imports": [
       "error",
       {
-        groups: [["^@?\\w"], [`^@${PROJECT_NAME}?\\w`], ["^\\./"], ["^/"], ["^.+\\.(css|scss)$"]],
+        groups: [["^@?\\w"], [`^@${PROJECT_NAME}?\\w`], ["^\\./", "^\\.\\./"], ["^/"], ["^.+\\.(css|scss)$"]],
       },
     ],
     "simple-import-sort/exports": "error",

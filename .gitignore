@@ -1,9 +1,16 @@
-# Files
+# Common
 .DS_Store
-.eslintcache
 pnpm-lock.yaml
-
-# Folders
 node_modules/
 .turbo/
-dist/
+
+# apps / js-vite
+/apps/js-vite/dist
+
+# apps / qwick
+/apps/qwik/dist
+/apps/qwik/tmp
+/apps/qwik/server
+
+# packages / ts-vite
+/packages/ts-vite/dist
