@@ -1,3 +1,3 @@
-import { cleanProject } from "./clean.functions.js";
+import { clean } from "./clean.functions.js";
 
-cleanProject();
+clean();

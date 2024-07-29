@@ -3,7 +3,7 @@ import { execSync } from "child_process";
 import { GIT_IGNORE_FILE_NAME, REMOTE_COMMAND_RUNNER } from "./clean.config.js";
 import { getFileContent } from "../utility/utility.functions.js";
 
-export function cleanProject() {
+export function clean() {
   try {
     const cleanCommand = getCleanCommand();
     if (!cleanCommand) {
