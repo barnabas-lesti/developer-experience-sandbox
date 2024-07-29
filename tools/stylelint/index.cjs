@@ -1,6 +1,6 @@
 /** @type {import("stylelint").Config} */
 module.exports = {
-  extends: "./tools/stylelint/index.cjs",
+  extends: "stylelint-config-standard",
   rules: {
     "no-empty-source": null,
   },
