@@ -1,9 +1,8 @@
 {
   "name": "@webdev/root",
+  "description": "Playground project to test out web frameworks, patterns and more.",
   "version": "0.0.1",
-  "private": true,
   "type": "module",
-  "packageManager": "pnpm@9.4.0",
   "scripts": {
     "cli:clean": "node ./tools/clean",
     "cli:sync-ignore-files": "node ./tools/sync-ignore-files",
@@ -12,8 +11,8 @@
     "dev:qwik": "turbo run dev --filter=\"@webdev/qwik\"",
     "build": "turbo run build",
     "preview": "turbo run preview",
-    "lint": "prettier . --check --cache && eslint . --cache && stylelint \"**/*.css\"",
-    "lint:fix": "prettier . --write --cache && eslint . --fix --cache && stylelint \"**/*.css\" --fix"
+    "lint": "prettier . --check --cache && eslint . --cache && stylelint \"**/*.{css,scss}\"",
+    "lint:fix": "prettier . --write --cache && eslint . --fix --cache && stylelint \"**/*.{css,scss}\" --fix"
   },
   "dependencies": {},
   "devDependencies": {
@@ -29,5 +28,9 @@
     "stylelint-config-standard": "^34.0.0",
     "typescript": "^5.3.3",
     "turbo": "^2.0.6"
+  },
+  "engines": {
+    "node": ">=18.20.0",
+    "pnpm": ">=9.4.0"
   }
 }
