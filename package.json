@@ -12,7 +12,8 @@
     "build": "turbo run build",
     "preview": "turbo run preview",
     "lint": "prettier . --check --cache && eslint . --cache && stylelint \"**/*.{css,scss}\" --cache",
-    "lint:fix": "prettier . --write --cache && eslint . --fix --cache && stylelint \"**/*.{css,scss}\" --cache --fix"
+    "lint:fix": "prettier . --write --cache && eslint . --fix --cache && stylelint \"**/*.{css,scss}\" --cache --fix",
+    "postinstall": "pnpm cli:sync-ignore-files"
   },
   "dependencies": {},
   "devDependencies": {
