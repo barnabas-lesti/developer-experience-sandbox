@@ -1,6 +1,7 @@
 # Common
 .DS_Store
 .eslintcache
+.stylelintcache
 pnpm-lock.yaml
 node_modules/
 .turbo/

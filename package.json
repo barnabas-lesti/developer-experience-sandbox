@@ -11,8 +11,8 @@
     "dev:qwik": "turbo run dev --filter=\"@webdev/qwik\"",
     "build": "turbo run build",
     "preview": "turbo run preview",
-    "lint": "prettier . --check --cache && eslint . --cache && stylelint \"**/*.{css,scss}\"",
-    "lint:fix": "prettier . --write --cache && eslint . --fix --cache && stylelint \"**/*.{css,scss}\" --fix"
+    "lint": "prettier . --check --cache && eslint . --cache && stylelint \"**/*.{css,scss}\" --cache",
+    "lint:fix": "prettier . --write --cache && eslint . --fix --cache && stylelint \"**/*.{css,scss}\" --cache --fix"
   },
   "dependencies": {},
   "devDependencies": {
@@ -29,6 +29,7 @@
     "typescript": "^5.3.3",
     "turbo": "^2.0.6"
   },
+  "packageManager": "pnpm@9.4.0",
   "engines": {
     "node": ">=18.20.0",
     "pnpm": ">=9.4.0"
