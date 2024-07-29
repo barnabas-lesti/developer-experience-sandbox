@@ -27,6 +27,7 @@ jobs:
         run: pnpm install
 
   lint:
+    needs: "setup"
     runs-on: ubuntu-latest
     steps:
       - name: Run lint
