@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "cli:clean": "node ./tools/clean",
+    "cli:clean": "node ./tools/clean --runner=\"pnpm dlx\" --test --a=aTest --runner=\"npx\" --open",
     "cli:sync-ignore-files": "node ./tools/sync-ignore-files",
     "dev": "turbo run dev",
     "dev:js-vite": "turbo run dev --filter=\"@webdev/js-vite\"",

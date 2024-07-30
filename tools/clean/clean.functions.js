@@ -1,7 +1,28 @@
-import { execSync } from "child_process";
+// import { execSync } from "child_process";
 
-import { GIT_IGNORE_FILE_NAME, REMOTE_COMMAND_RUNNER } from "./clean.config.js";
+import { ALLOWED_ARGUMENTS, GIT_IGNORE_FILE_NAME, RUNNER_ARGUMENT } from "./clean.config.js";
 import { getFileContent } from "../utility/utility.functions.js";
+
+function getCLIArgumentsMap() {
+  const [, , ...argumentsArray] = process.argv;
+  return argumentsArray.reduce((accumulator, argumentString) => {
+    const argumentPair = argumentString.split("=");
+    const key = argumentPair[0];
+    const value = argumentPair[1] || true;
+
+    if (!ALLOWED_ARGUMENTS.includes(key)) {
+      console.warn(`Argument "${key}" is unknown for the tool, will not be used.`);
+      return accumulator;
+    }
+
+    if (accumulator[key]) {
+      console.warn(`Argument "${key}" set multiple times, using first occurrence.`);
+      return accumulator;
+    }
+
+    return { ...accumulator, ...{ [key]: value } };
+  }, {});
+}
 
 export function clean() {
   try {
@@ -12,13 +33,19 @@ export function clean() {
     }
 
     console.log(cleanCommand);
-    execSync(cleanCommand, { stdio: "inherit" });
+    // execSync(cleanCommand, { stdio: "inherit" });
   } catch (error) {
     console.error(error);
   }
 }
 
 function getCleanCommand() {
+  const runner = getCLIArgumentsMap()[RUNNER_ARGUMENT];
+
+  if (!runner) {
+    console.error(`${RUNNER_ARGUMENT} not set, exiting command.`);
+  }
+
   const { files, globs } = getFilesAndGlobs();
   const filesArgumentString = files.length > 0 ? " " + files.join(" ") : "";
   const globArgumentString = globs.length > 0 ? "--glob " + globs.join(" ") : "";
@@ -27,7 +54,7 @@ function getCleanCommand() {
     return "";
   }
 
-  return `${REMOTE_COMMAND_RUNNER} rimraf${filesArgumentString} ${globArgumentString}`;
+  return `${runner} rimraf${filesArgumentString} ${globArgumentString}`;
 }
 
 function getFilesAndGlobs() {

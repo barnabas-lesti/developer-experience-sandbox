@@ -1,2 +1,3 @@
 export const GIT_IGNORE_FILE_NAME = ".gitignore";
-export const REMOTE_COMMAND_RUNNER = "pnpm dlx";
+export const RUNNER_ARGUMENT = "--runner";
+export const ALLOWED_ARGUMENTS = [RUNNER_ARGUMENT];
