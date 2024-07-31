@@ -1,33 +1,31 @@
-import { execSync } from "child_process";
+import { DEFAULT_RUNNER, GIT_IGNORE_FILE_NAME, RUNNER_ARGUMENT } from "./clean-project.config.js";
+import { getCLIArgumentsMap, getFileContent, runCLICommand } from "../utility/index.js";
 
-import { GIT_IGNORE_FILE_NAME, REMOTE_COMMAND_RUNNER } from "./clean.config.js";
-import { getFileContent } from "../utility/utility.functions.js";
-
-export function clean() {
-  try {
-    const cleanCommand = getCleanCommand();
-    if (!cleanCommand) {
-      console.error('No entries found in the ".clean" file.');
-      return;
-    }
-
-    console.log(cleanCommand);
-    execSync(cleanCommand, { stdio: "inherit" });
-  } catch (error) {
-    console.error(error);
+export function cleanProject() {
+  const command = getCleanCommand();
+  if (!command) {
+    console.log("Nothing to clean, exiting command.");
+    return;
   }
+
+  runCLICommand(command);
 }
 
 function getCleanCommand() {
+  const runner = getRunner();
   const { files, globs } = getFilesAndGlobs();
   const filesArgumentString = files.length > 0 ? " " + files.join(" ") : "";
   const globArgumentString = globs.length > 0 ? "--glob " + globs.join(" ") : "";
 
   if (!filesArgumentString && !globArgumentString) {
-    return "";
+    return;
   }
 
-  return `${REMOTE_COMMAND_RUNNER} rimraf${filesArgumentString} ${globArgumentString}`;
+  return `${runner} rimraf${filesArgumentString} ${globArgumentString}`;
+}
+
+function getRunner() {
+  return getCLIArgumentsMap()[RUNNER_ARGUMENT] || DEFAULT_RUNNER;
 }
 
 function getFilesAndGlobs() {

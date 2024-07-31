@@ -1,22 +1,34 @@
 import fs from "fs";
 
-import { GIT_IGNORE_FILE_NAME, OTHER_IGNORE_FILE_NAMES } from "./sync-ignore-files.config.js";
-import { getFileContent, getRelativeFilePath } from "../utility/utility.functions.js";
+import { GIT_IGNORE_FILE_NAME } from "./sync-ignore-files.config.js";
+import {
+  convertStringArrayToLogString,
+  getCLIArgumentsMap,
+  getFileContent,
+  getRelativeFilePath,
+} from "../utility/index.js";
 
 export function syncIgnoreFiles() {
   try {
     const gitIgnoreFileContent = getFileContent(GIT_IGNORE_FILE_NAME);
+    const otherIgnoreFileNames = getOtherIgnoreFileNames();
 
-    OTHER_IGNORE_FILE_NAMES.forEach((otherIgnoreFileName) => {
+    if (!otherIgnoreFileNames.length) {
+      console.log("No other ignore files provided, exiting command.");
+    }
+
+    otherIgnoreFileNames.forEach((otherIgnoreFileName) => {
       fs.writeFileSync(getRelativeFilePath(otherIgnoreFileName), gitIgnoreFileContent);
     });
 
-    console.log(`Successfully synced "${GIT_IGNORE_FILE_NAME}" with ${convertOtherIgnoreFileNamesToString()}.`);
+    console.log(
+      `Successfully synced "${GIT_IGNORE_FILE_NAME}" with ${convertStringArrayToLogString(otherIgnoreFileNames)}.`,
+    );
   } catch (error) {
     console.error(error);
   }
 }
 
-function convertOtherIgnoreFileNamesToString() {
-  return OTHER_IGNORE_FILE_NAMES.map((ignoreFileName) => `"${ignoreFileName}"`).join(", ");
+function getOtherIgnoreFileNames() {
+  return Object.keys(getCLIArgumentsMap());
 }

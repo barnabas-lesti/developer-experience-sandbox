@@ -4,16 +4,15 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "cli:clean": "node ./tools/clean",
-    "cli:sync-ignore-files": "node ./tools/sync-ignore-files",
+    "cli:clean-project": "node ./tools/clean-project --runner=\"pnpm dlx\"",
+    "cli:sync-ignore-files": "node ./tools/sync-ignore-files .eslintignore .prettierignore .stylelintignore",
     "dev": "turbo run dev",
     "dev:js-vite": "turbo run dev --filter=\"@webdev/js-vite\"",
     "dev:qwik": "turbo run dev --filter=\"@webdev/qwik\"",
     "build": "turbo run build",
     "preview": "turbo run preview",
     "lint": "prettier . --check --cache && eslint . --cache && stylelint \"**/*.{css,scss}\" --cache",
-    "lint:fix": "prettier . --write --cache && eslint . --fix --cache && stylelint \"**/*.{css,scss}\" --cache --fix",
-    "postinstall": "pnpm cli:sync-ignore-files"
+    "lint:fix": "prettier . --write --cache && eslint . --fix --cache && stylelint \"**/*.{css,scss}\" --cache --fix"
   },
   "dependencies": {},
   "devDependencies": {
