@@ -34,3 +34,7 @@ export function runCLICommand(command) {
     console.error(error);
   }
 }
+
+export function convertStringArrayToLogString(stringArray) {
+  return stringArray.map((string) => `"${string}"`).join(", ");
+}

@@ -1,10 +1,10 @@
 import { DEFAULT_RUNNER, GIT_IGNORE_FILE_NAME, RUNNER_ARGUMENT } from "./clean-project.config.js";
-import { getCLIArgumentsMap, getFileContent, runCLICommand } from "../utility/utility.functions.js";
+import { getCLIArgumentsMap, getFileContent, runCLICommand } from "../utility/index.js";
 
 export function cleanProject() {
   const command = getCleanCommand();
   if (!command) {
-    console.error('No entries found in the ".clean" file.');
+    console.log("Nothing to clean, exiting command.");
     return;
   }
 

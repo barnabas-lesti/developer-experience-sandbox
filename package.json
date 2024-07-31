@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "cli:clean-project": "node ./tools/clean-project --runner=\"pnpm dlx\"",
-    "cli:sync-ignore-files": "node ./tools/sync-ignore-files",
+    "cli:sync-ignore-files": "node ./tools/sync-ignore-files .eslintignore .prettierignore .stylelintignore",
     "dev": "turbo run dev",
     "dev:js-vite": "turbo run dev --filter=\"@webdev/js-vite\"",
     "dev:qwik": "turbo run dev --filter=\"@webdev/qwik\"",
