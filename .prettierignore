@@ -5,14 +5,10 @@
 pnpm-lock.yaml
 node_modules/
 .turbo/
+storybook-static/
 
 # apps / js-vite
 /apps/js-vite/dist
-
-# apps / qwick
-/apps/qwik/dist
-/apps/qwik/tmp
-/apps/qwik/server
 
 # packages / ts-vite
 /packages/ts-vite/dist
