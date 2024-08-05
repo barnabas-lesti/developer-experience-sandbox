@@ -1,6 +1,6 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalEnv": ["BASE_URL"],
+  "globalEnv": [],
   "tasks": {
     "build": {
       "dependsOn": ["^build"]
@@ -11,7 +11,8 @@
     },
     "preview": {
       "cache": false,
-      "persistent": true
+      "persistent": true,
+      "dependsOn": ["^build"]
     }
   }
 }

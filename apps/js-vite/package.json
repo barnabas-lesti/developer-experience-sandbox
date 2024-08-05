@@ -9,7 +9,7 @@
     "preview": "vite preview --port 3010"
   },
   "dependencies": {
-    "@webdev-packages/ts-vite": "workspace:*"
+    "@webdev-packages/ts-vite": "*"
   },
   "devDependencies": {
     "vite": "^5.3.4"

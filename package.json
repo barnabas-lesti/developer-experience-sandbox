@@ -3,15 +3,24 @@
   "description": "Playground project to test out web frameworks, patterns and more.",
   "version": "0.0.1",
   "type": "module",
+  "packageManager": "npm@10.7.0",
+  "engines": {
+    "node": ">=18.20.0",
+    "npm": ">=10.7.0"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "cli:clean-project": "node ./tools/clean-project --runner=\"pnpm dlx\"",
-    "cli:sync-ignore-files": "node ./tools/sync-ignore-files .eslintignore .prettierignore .stylelintignore",
+    "build": "turbo run build",
+    "clean": "node ./tools/clean",
     "dev": "turbo run dev",
     "dev:js-vite": "turbo run dev --filter=\"@webdev/js-vite\"",
-    "build": "turbo run build",
     "preview": "turbo run preview",
     "lint": "prettier . --check --cache && eslint . --cache && stylelint \"**/*.{css,scss}\" --cache",
-    "lint:fix": "prettier . --write --cache && eslint . --fix --cache && stylelint \"**/*.{css,scss}\" --cache --fix"
+    "lint:fix": "prettier . --write --cache && eslint . --fix --cache && stylelint \"**/*.{css,scss}\" --cache --fix",
+    "turbo": "turbo"
   },
   "dependencies": {},
   "devDependencies": {
@@ -27,10 +36,5 @@
     "stylelint-config-standard": "^34.0.0",
     "typescript": "^5.3.3",
     "turbo": "^2.0.6"
-  },
-  "packageManager": "pnpm@9.4.0",
-  "engines": {
-    "node": ">=18.20.0",
-    "pnpm": ">=9.4.0"
   }
 }

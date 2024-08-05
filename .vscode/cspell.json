@@ -1,6 +1,6 @@
 {
   "version": "0.2",
   "language": "en",
-  "words": ["eslintcache", "qwik", "stylelint", "stylelintignore", "undici", "webdev"],
+  "words": ["eslintcache", "stylelint", "stylelintcache", "webdev"],
   "flagWords": []
 }

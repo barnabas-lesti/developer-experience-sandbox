@@ -1,10 +1,13 @@
-import { DEFAULT_RUNNER, GIT_IGNORE_FILE_NAME, RUNNER_ARGUMENT } from "./clean-project.config.js";
-import { getCLIArgumentsMap, getFileContent, runCLICommand } from "../utility/index.js";
+import { CONFIG_FILE_NAME, DEFAULT_RUNNER, RUNNER_ARGUMENT } from "./clean.const.js";
+import { getCLIArgumentsMap, getFileContent, log, runCLICommand } from "../utility/utility.functions.js";
 
-export function cleanProject() {
+/**
+ * Cleans the project by running using a remote runner and provided configuration file.
+ */
+export function clean() {
   const command = getCleanCommand();
   if (!command) {
-    console.log("Nothing to clean, exiting command.");
+    log("Nothing to clean, exiting command.");
     return;
   }
 
@@ -25,14 +28,15 @@ function getCleanCommand() {
 }
 
 function getRunner() {
-  return getCLIArgumentsMap()[RUNNER_ARGUMENT] || DEFAULT_RUNNER;
+  const runnerArgument = getCLIArgumentsMap()[RUNNER_ARGUMENT];
+  return typeof runnerArgument === "string" ? runnerArgument : DEFAULT_RUNNER;
 }
 
 function getFilesAndGlobs() {
   const files = [];
   const globs = [];
 
-  getGitIgnoreFileContent()
+  getConfigFileContent()
     .split("\n")
     .map((entry) => entry.replace("\r", ""))
     .map((entry) => entry.trim())
@@ -44,6 +48,18 @@ function getFilesAndGlobs() {
   return { files, globs };
 }
 
-function getGitIgnoreFileContent() {
-  return getFileContent(GIT_IGNORE_FILE_NAME);
+function getConfigFileContent() {
+  try {
+    return getFileContent(CONFIG_FILE_NAME);
+  } catch (error) {
+    /** @type {{ message: string }} */
+    const { message } = error;
+    const isFileNotFoundError = message.includes("ENOENT");
+
+    if (isFileNotFoundError) {
+      throw new Error(`"${CONFIG_FILE_NAME}" file not found in the root directory, please create one to use the tool.`);
+    }
+
+    throw error;
+  }
 }

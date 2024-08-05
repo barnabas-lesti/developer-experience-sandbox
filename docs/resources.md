@@ -1,6 +1,5 @@
 # Resources
 
-- https://pnpm.io/
 - https://eslint.org/docs/v8.x/
 - https://prettier.io/docs/en/
 - https://stylelint.io/

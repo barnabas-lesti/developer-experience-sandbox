@@ -1,28 +1,22 @@
 # Scripts
 
 ```sh
-# Install all dependencies
-pnpm i
+# Install dependencies
+npm i
 
-# Add new dependency
-## https://pnpm.io/cli/install
-pnpm add package-name
-
-# Clean the project
-## remove node_modules, built resources, etc.
-pnpm clean
+# Clean the project by removing built resources
+npm run clean
 
 # Lint source code
-## use ":fix" to fix issues where possible
-pnpm lint
-pnpm lint:fix
+npm run lint
+npm run lint:fix
 
-# Start development server and/or run package builders in watch mode
-pnpm dev
+# Start development server
+npm run dev
 
-# Build the application/package in production mode
-pnpm build
+# Build the application resources
+npm run build
 
 # Run the server in production preview mode
-pnpm preview
+npm run preview
 ```
